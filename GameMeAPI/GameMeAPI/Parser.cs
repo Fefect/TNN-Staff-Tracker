@@ -32,10 +32,8 @@ namespace GameMeAPI
             XmlNode node = doc.DocumentElement.SelectSingleNode("//memberList/members");
             for (int i = 0; i < node.ChildNodes.Count; i++)
             {
-                steamidArrayList.Add(GetSteamId(Convert.ToInt64(node.ChildNodes.Item(i).InnerText.Trim()))); 
+                steamidArrayList.Add(GetSteamId(Convert.ToInt64(node.ChildNodes.Item(i).InnerText.Trim())));
             }
-
-
         }
 
         public string GetSteamId(long steamId64)
