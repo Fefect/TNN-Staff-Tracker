@@ -26,7 +26,7 @@ namespace GameMeAPI
             foreach (User used in players)
             {
                 comboBox1.Items.Add(used);
-            } 
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace GameMeAPI
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -63,6 +63,7 @@ namespace GameMeAPI
         private void BrowserThread()
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string strFileName = openFileDialog1.FileName;
@@ -94,7 +95,7 @@ namespace GameMeAPI
 
                 foreach (DictionaryEntry data in ht)
                 {
-                    textBox1.Text += ("\r\n" + data.Key + " - " + data.Value + " report(s)");
+                    textBox1.Invoke(new Action(() => textBox1.Text += ("\r\n" + data.Key + " - " + data.Value + " report(s)")));
                 }
             }
         }
